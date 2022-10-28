@@ -1696,7 +1696,7 @@ class Status(CrdObject):
         self._phase = new_val
 
 
-class CephFilesystem(CrdClass):
+class StoneFilesystem(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -1712,7 +1712,7 @@ class CephFilesystem(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephFilesystem, self).__init__(
+        super(StoneFilesystem, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

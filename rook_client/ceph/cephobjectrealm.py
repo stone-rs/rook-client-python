@@ -79,7 +79,7 @@ class Status(CrdObject):
         self._phase = new_val
 
 
-class CephObjectRealm(CrdClass):
+class StoneObjectRealm(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -95,7 +95,7 @@ class CephObjectRealm(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephObjectRealm, self).__init__(
+        super(StoneObjectRealm, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

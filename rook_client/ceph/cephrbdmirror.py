@@ -991,7 +991,7 @@ class Status(CrdObject):
         self._phase = new_val
 
 
-class CephRBDMirror(CrdClass):
+class StoneRBDMirror(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -1007,7 +1007,7 @@ class CephRBDMirror(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephRBDMirror, self).__init__(
+        super(StoneRBDMirror, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

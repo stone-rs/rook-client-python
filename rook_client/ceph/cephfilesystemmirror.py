@@ -938,7 +938,7 @@ class Status(CrdObject):
         self._phase = new_val
 
 
-class CephFilesystemMirror(CrdClass):
+class StoneFilesystemMirror(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -954,7 +954,7 @@ class CephFilesystemMirror(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephFilesystemMirror, self).__init__(
+        super(StoneFilesystemMirror, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

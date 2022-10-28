@@ -5,11 +5,11 @@ import pytest
 
 import rook_client
 from rook_client.cassandra.cluster import Cluster as CassandraCluster
-from rook_client.ceph.cephcluster import CephCluster
-from rook_client.ceph.cephfilesystem import CephFilesystem
-from rook_client.ceph.cephnfs import CephNFS
-from rook_client.ceph.cephobjectstore import CephObjectStore
-from rook_client.ceph.cephblockpool import CephBlockPool
+from rook_client.stone.stonecluster import StoneCluster
+from rook_client.stone.stonefilesystem import StoneFilesystem
+from rook_client.stone.stonenfs import StoneNFS
+from rook_client.stone.stoneobjectstore import StoneObjectStore
+from rook_client.stone.stoneblockpool import StoneBlockPool
 
 
 def _load_example(crd_base, what):
@@ -20,20 +20,20 @@ def _load_example(crd_base, what):
 @pytest.mark.parametrize(
     "strict,cls,filename",
     [
-        (True, CephCluster, "ceph/cluster-external.yaml"),
-        (True, CephCluster, "ceph/cluster-on-pvc.yaml"),
-        (True, CephCluster, "ceph/cluster.yaml"),
-        (True, CephFilesystem, "ceph/filesystem-ec.yaml"),
-        (True, CephFilesystem, "ceph/filesystem-test.yaml"),
-        (True, CephFilesystem, "ceph/filesystem.yaml"),
-        (True, CephObjectStore, "ceph/object-ec.yaml"),
-        (True, CephObjectStore, "ceph/object-openshift.yaml"),
-        (True, CephObjectStore, "ceph/object-test.yaml"),
-        (True, CephObjectStore, "ceph/object.yaml"),
-        (True, CephNFS, "ceph/nfs.yaml"),
-        (True, CephBlockPool, "ceph/pool.yaml"),
-        (True, CephBlockPool, "ceph/pool-ec.yaml"),
-        (True, CephBlockPool, "ceph/pool-test.yaml"),
+        (True, StoneCluster, "stone/cluster-external.yaml"),
+        (True, StoneCluster, "stone/cluster-on-pvc.yaml"),
+        (True, StoneCluster, "stone/cluster.yaml"),
+        (True, StoneFilesystem, "stone/filesystem-ec.yaml"),
+        (True, StoneFilesystem, "stone/filesystem-test.yaml"),
+        (True, StoneFilesystem, "stone/filesystem.yaml"),
+        (True, StoneObjectStore, "stone/object-ec.yaml"),
+        (True, StoneObjectStore, "stone/object-openshift.yaml"),
+        (True, StoneObjectStore, "stone/object-test.yaml"),
+        (True, StoneObjectStore, "stone/object.yaml"),
+        (True, StoneNFS, "stone/nfs.yaml"),
+        (True, StoneBlockPool, "stone/pool.yaml"),
+        (True, StoneBlockPool, "stone/pool-ec.yaml"),
+        (True, StoneBlockPool, "stone/pool-test.yaml"),
 
         # schema invalid:
         # (False, CassandraCluster, "cassandra/cluster.yaml"),

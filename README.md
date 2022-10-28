@@ -5,7 +5,7 @@ this project provides generated API classes to let users write correct clients e
 
 Right now, it supports three operators:
 
-* Ceph
+* Stone
 * Edgefs
 * Cassandra
 
@@ -13,7 +13,7 @@ It is used to type check client code against the Rook API using [mypy](mypy-lang
 
 Inspired by [kubernetes-client/python](https://github.com/kubernetes-client/python/tree/master/kubernetes/client/models)
 
-Main uses case is the mgr/rook orchestrator module of the Ceph MGR
+Main uses case is the mgr/rook orchestrator module of the Stone MGR
 
 ## Code Generation
 
@@ -31,7 +31,7 @@ python generate_model_classes.py <crds.yaml> <output-folder>
 To install `rook-client`, run:
 
 ```bash
-pip install -e 'git+https://github.com/ceph/rook-client-python#egg=rook-client'
+pip install -e 'git+https://github.com/stone/rook-client-python#egg=rook-client'
 ```
 
 
@@ -39,8 +39,8 @@ pip install -e 'git+https://github.com/ceph/rook-client-python#egg=rook-client'
 
 ```python
 def objectstore(api_name, name, namespace, instances):
-    from rook_client.ceph import cephobjectstore as cos
-    rook_os = cos.CephObjectStore(
+    from rook_client.stone import stoneobjectstore as cos
+    rook_os = cos.StoneObjectStore(
         apiVersion=api_name,
         metadata=dict(
             name=name,

@@ -82,7 +82,7 @@ class Status(CrdObject):
         self._phase = new_val
 
 
-class CephObjectStoreUser(CrdClass):
+class StoneObjectStoreUser(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -98,7 +98,7 @@ class CephObjectStoreUser(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephObjectStoreUser, self).__init__(
+        super(StoneObjectStoreUser, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

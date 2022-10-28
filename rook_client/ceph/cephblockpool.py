@@ -1118,7 +1118,7 @@ class Status(CrdObject):
         self._snapshotScheduleStatus = new_val
 
 
-class CephBlockPool(CrdClass):
+class StoneBlockPool(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -1134,7 +1134,7 @@ class CephBlockPool(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephBlockPool, self).__init__(
+        super(StoneBlockPool, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,

@@ -2,7 +2,7 @@
 Generate Python files containing data Python models classes for
 all properties of the all CRDs in the file
 
-**Note**: generate_model_classes.py is independent of Rook or Ceph. It can be used for all
+**Note**: generate_model_classes.py is independent of Rook or Stone. It can be used for all
   CRDs.
 
 For example:

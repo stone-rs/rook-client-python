@@ -25,7 +25,7 @@ else
   . venv/bin/activate 
 fi
 
-python generate_model_classes.py "$crd_base/ceph/crds.yaml" "rook_client/ceph"
+python generate_model_classes.py "$crd_base/stone/crds.yaml" "rook_client/stone"
 #python generate_model_classes.py "$crd_base/cassandra/operator.yaml" "rook_client/cassandra"
 
 python setup.py develop

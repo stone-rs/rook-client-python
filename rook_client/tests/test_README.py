@@ -1,6 +1,6 @@
 def objectstore(api_name, name, namespace, instances):
-    from rook_client.ceph import cephobjectstore as cos
-    rook_os = cos.CephObjectStore(
+    from rook_client.stone import stoneobjectstore as cos
+    rook_os = cos.StoneObjectStore(
         apiVersion=api_name,
         metadata=dict(
             name=name,

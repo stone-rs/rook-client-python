@@ -10,7 +10,7 @@ except ImportError:
 
 from .._helper import _omit, CrdObject, CrdObjectList, CrdClass
 
-class CephVersion(CrdObject):
+class StoneVersion(CrdObject):
     _properties = [
         ('allowUnsupported', 'allowUnsupported', bool, False, False),
         ('image', 'image', str, False, False)
@@ -20,7 +20,7 @@ class CephVersion(CrdObject):
                  allowUnsupported=_omit,  # type: Optional[bool]
                  image=_omit,  # type: Optional[str]
                  ):
-        super(CephVersion, self).__init__(
+        super(StoneVersion, self).__init__(
             allowUnsupported=allowUnsupported,
             image=image,
         )
@@ -492,7 +492,7 @@ class Osd(CrdObject):
 
 class Status(CrdObject):
     _properties = [
-        ('ceph', 'ceph', 'Ceph', False, False),
+        ('stone', 'stone', 'Stone', False, False),
         ('conditions', 'conditions', 'ConditionsList', False, False),
         ('message', 'message', str, False, False),
         ('phase', 'phase', str, False, False),
@@ -507,7 +507,7 @@ class Status(CrdObject):
     ]        
 
     def __init__(self,
-                 ceph=_omit,  # type: Optional[Ceph]
+                 stone=_omit,  # type: Optional[Stone]
                  conditions=_omit,  # type: Optional[Union[List[ConditionsItem], CrdObjectList]]
                  message=_omit,  # type: Optional[str]
                  phase=_omit,  # type: Optional[str]
@@ -521,7 +521,7 @@ class Status(CrdObject):
                  timeout=_omit,  # type: Optional[str]
                  ):
         super(Status, self).__init__(
-            ceph=ceph,
+            stone=stone,
             conditions=conditions,
             message=message,
             phase=phase,
@@ -536,14 +536,14 @@ class Status(CrdObject):
         )
 
     @property
-    def ceph(self):
-        # type: () -> Ceph
-        return self._property_impl('ceph')
+    def stone(self):
+        # type: () -> Stone
+        return self._property_impl('stone')
     
-    @ceph.setter
-    def ceph(self, new_val):
-        # type: (Optional[Ceph]) -> None
-        self._ceph = new_val
+    @stone.setter
+    def stone(self, new_val):
+        # type: (Optional[Stone]) -> None
+        self._stone = new_val
     
     @property
     def conditions(self):
@@ -1130,7 +1130,7 @@ class Selector(CrdObject):
 class Spec(CrdObject):
     _properties = [
         ('annotations', 'annotations', object, False, True),
-        ('cephVersion', 'cephVersion', 'CephVersion', False, True),
+        ('stoneVersion', 'stoneVersion', 'StoneVersion', False, True),
         ('cleanupPolicy', 'cleanupPolicy', 'CleanupPolicy', False, True),
         ('continueUpgradeAfterChecksEvenIfNotHealthy', 'continueUpgradeAfterChecksEvenIfNotHealthy', bool, False, False),
         ('crashCollector', 'crashCollector', 'CrashCollector', False, True),
@@ -1163,7 +1163,7 @@ class Spec(CrdObject):
 
     def __init__(self,
                  annotations=_omit,  # type: Optional[Any]
-                 cephVersion=_omit,  # type: Optional[CephVersion]
+                 stoneVersion=_omit,  # type: Optional[StoneVersion]
                  cleanupPolicy=_omit,  # type: Optional[CleanupPolicy]
                  continueUpgradeAfterChecksEvenIfNotHealthy=_omit,  # type: Optional[bool]
                  crashCollector=_omit,  # type: Optional[CrashCollector]
@@ -1195,7 +1195,7 @@ class Spec(CrdObject):
                  ):
         super(Spec, self).__init__(
             annotations=annotations,
-            cephVersion=cephVersion,
+            stoneVersion=stoneVersion,
             cleanupPolicy=cleanupPolicy,
             continueUpgradeAfterChecksEvenIfNotHealthy=continueUpgradeAfterChecksEvenIfNotHealthy,
             crashCollector=crashCollector,
@@ -1237,14 +1237,14 @@ class Spec(CrdObject):
         self._annotations = new_val
     
     @property
-    def cephVersion(self):
-        # type: () -> Optional[CephVersion]
-        return self._property_impl('cephVersion')
+    def stoneVersion(self):
+        # type: () -> Optional[StoneVersion]
+        return self._property_impl('stoneVersion')
     
-    @cephVersion.setter
-    def cephVersion(self, new_val):
-        # type: (Optional[CephVersion]) -> None
-        self._cephVersion = new_val
+    @stoneVersion.setter
+    def stoneVersion(self, new_val):
+        # type: (Optional[StoneVersion]) -> None
+        self._stoneVersion = new_val
     
     @property
     def cleanupPolicy(self):
@@ -3608,7 +3608,7 @@ class Capacity(CrdObject):
 
 class Versions(CrdObject):
     _properties = [
-        ('cephfs-mirror', 'cephfs_mirror', object, False, False),
+        ('stonefs-mirror', 'stonefs_mirror', object, False, False),
         ('mds', 'mds', object, False, False),
         ('mgr', 'mgr', object, False, False),
         ('mon', 'mon', object, False, False),
@@ -3619,7 +3619,7 @@ class Versions(CrdObject):
     ]        
 
     def __init__(self,
-                 cephfs_mirror=_omit,  # type: Optional[Any]
+                 stonefs_mirror=_omit,  # type: Optional[Any]
                  mds=_omit,  # type: Optional[Any]
                  mgr=_omit,  # type: Optional[Any]
                  mon=_omit,  # type: Optional[Any]
@@ -3629,7 +3629,7 @@ class Versions(CrdObject):
                  rgw=_omit,  # type: Optional[Any]
                  ):
         super(Versions, self).__init__(
-            cephfs_mirror=cephfs_mirror,
+            stonefs_mirror=stonefs_mirror,
             mds=mds,
             mgr=mgr,
             mon=mon,
@@ -3640,14 +3640,14 @@ class Versions(CrdObject):
         )
 
     @property
-    def cephfs_mirror(self):
+    def stonefs_mirror(self):
         # type: () -> Any
-        return self._property_impl('cephfs_mirror')
+        return self._property_impl('stonefs_mirror')
     
-    @cephfs_mirror.setter
-    def cephfs_mirror(self, new_val):
+    @stonefs_mirror.setter
+    def stonefs_mirror(self, new_val):
         # type: (Optional[Any]) -> None
-        self._cephfs_mirror = new_val
+        self._stonefs_mirror = new_val
     
     @property
     def mds(self):
@@ -3720,7 +3720,7 @@ class Versions(CrdObject):
         self._rgw = new_val
 
 
-class Ceph(CrdObject):
+class Stone(CrdObject):
     _properties = [
         ('capacity', 'capacity', 'Capacity', False, False),
         ('details', 'details', object, False, False),
@@ -3740,7 +3740,7 @@ class Ceph(CrdObject):
                  previousHealth=_omit,  # type: Optional[str]
                  versions=_omit,  # type: Optional[Versions]
                  ):
-        super(Ceph, self).__init__(
+        super(Stone, self).__init__(
             capacity=capacity,
             details=details,
             health=health,
@@ -3884,7 +3884,7 @@ class Version(CrdObject):
         self._version = new_val
 
 
-class CephCluster(CrdClass):
+class StoneCluster(CrdClass):
     _properties = [
         ('apiVersion', 'apiVersion', str, False, False),
         ('kind', 'kind', str, False, False),
@@ -3900,7 +3900,7 @@ class CephCluster(CrdClass):
                  metadata=_omit,  # type: Optional[Any]
                  status=_omit,  # type: Optional[Status]
                  ):
-        super(CephCluster, self).__init__(
+        super(StoneCluster, self).__init__(
             spec=spec,
             apiVersion=apiVersion,
             kind=kind,
